@@ -1,0 +1,39 @@
+body {
+    margin: 20px;
+}
+
+
+.conteiner {
+    margin: 0 auto;
+    width: 1000px;
+
+}
+
+.display-img {
+    width: 100%;
+    height: auto;
+}
+
+img {
+    display: block;
+    width: 16.667%;
+    height: 100px;
+}
+
+
+.fullview {
+    margin: 0 auto ;
+    border: none;
+    background-size: cover;
+}
+
+
+.preview {
+    width: 100%;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    list-style: none;
+}
