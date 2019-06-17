@@ -1,0 +1,40 @@
+body {
+    margin: 20px;
+}
+
+.conteiner {
+    margin: 0 auto;
+    width: 600px;
+}
+
+form   {
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+} 
+
+input {
+    width: 300px;
+    margin: 10px;
+}
+
+.data-btn {
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: space-between; */
+    /* align-content: space-between; */
+}
+button {
+    width: 150px;
+    margin: 6px;
+}
+
+ul {
+    margin: 6px;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;    
+}

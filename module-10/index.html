@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Homework 10</title>
+</head>
+
+<body>
+    <div class="conteiner">
+        <form class="js-form">
+            <div>
+                <input type="text" id="id" name="id" placeholder="Write Id">
+                <input type="text" id="name" name="name" placeholder="Write name">
+                <input type="text" id="age" name="age" placeholder="Write age">
+            </div>
+            <div class="data-btn">
+                <button  type="submit" data-action="all">Показати список</button>
+                <button  type="submit" data-action="id">Показати User по ID</button>
+                <button  type="submit" data-action="create">Створити User</button>
+                <button  type="submit" data-action="delete">Видалити User</button>
+                <button  type="submit" data-action="update">Обновити User у списку</button>
+            </div>
+
+        </form>
+            <p class="js-users"></p>
+    </div>
+
+    <script src="./js/index.js"></script>
+</body>
+
+</html>
