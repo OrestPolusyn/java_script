@@ -1,4 +1,4 @@
-// "use strict";
+"use strict";
 
 const urlDB = "https://test-users-api.herokuapp.com/users/";
 
