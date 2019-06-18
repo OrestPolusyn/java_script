@@ -1,0 +1,57 @@
+body {
+  margin: 20px;
+}
+
+.conteiner {
+  margin: 0 auto;
+  width: 600px;
+}
+
+form {
+  display: flex;
+  justify-content: space-around;
+  align-content: space-around;
+  margin-bottom: 30px;
+}
+
+li {
+  list-style-type: none;
+}
+
+section {
+  display: inline-block;
+}
+
+ul {
+  margin: 6px;
+  padding: 0;
+}
+
+.submit, .reset {
+  margin: 30px 0;
+  width: 120px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+img {
+    display: block;
+    margin: 16px;
+    width: 300px;
+    height: 180px;
+    vertical-align: middle;
+}
+
+.card {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-content: space-around;
+    
+}
+
+.content {
+    display: inline-block;
+
+    width: 300px;
+}
