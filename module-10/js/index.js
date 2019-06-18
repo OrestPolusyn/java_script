@@ -1,4 +1,4 @@
-// "use strict";
+"use strict";
 
 const urlDB = "https://test-users-api.herokuapp.com/users/";
 
@@ -129,7 +129,7 @@ function getUsersData(event) {
   }
 
   if (target.dataset.action === "update") {
-    const userPUT = {
+     let userPUT = {
       name: userName.value,
       age: userAge.value
     }
