@@ -129,11 +129,13 @@ function getUsersData(event) {
   }
 
   if (target.dataset.action === "update") {
-    const userPUT = {};
-    userPUT.name = userName.value;
-    userPUT.age = userAge.value
-
-    updateUser(userId.value, userPUT).then(dataB =>
+    const userOld = {};
+    const userNew = {
+      name: userName.value,
+      age: userAge.value
+    }
+    const userPut = Object.assign(userOld, userNew);
+    updateUser(userId.value, userPut).then(dataB =>
       userList.textContent = `Користувача змінено на: Ім'я: ${dataB.data.name}  Вік: ${dataB.data.age}`
     );
   }
