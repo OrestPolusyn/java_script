@@ -19,28 +19,45 @@ function saveBookmarks(event) {
     alert('Будь-ласка введіть дані')
     return;
   }
+
   const bookmark = {
     name: siteName.value,
     url: siteUrl.value
   }
-
   if (localStorage.getItem('bookmarks') == null) {
     const bookmarks = [];
     bookmarks.push(bookmark);
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
   } else {
-    const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
-    bookmarks.unshift(bookmark);
-    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
-  }
+    if (!localStorage.getItem('bookmarks').includes(bookmark.url)) {
+      const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+      bookmarks.unshift(bookmark);
+      localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    } else {
+      alert('NOOOOOOO')
 
-  const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
-  list.innerHTML = template(bookmarks);
+    }
+    const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+    localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+
+    list.innerHTML = template(bookmarks);
+  }
 }
 
 function deleteBookmarks(event) {
   event.preventDefault();
-  console.log(event.child);
+  const card = event.target.closest('.card');
+  const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
+  console.log(bookmarks);
+
+  for (let i = 0; i < bookmarks.length; i++) {
+    if (card) {
+      bookmarks.splice(i, 1)
+      filter(e => e.url !== bookmarks[i]);
+    }
+  }
+  card.remove();
+  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 }
 
 
