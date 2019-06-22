@@ -7,7 +7,6 @@ const template = Handlebars.compile(source);
 const siteName = document.querySelector('.js-siteName');
 const siteUrl = document.querySelector('.js-siteUrl');
 const addBtn = document.querySelector('.add');
-const deleteBtn = document.querySelector('.delete');
 
 addBtn.addEventListener('click', saveBookmarks);
 formBookmark.addEventListener('click', deleteBookmarks);
@@ -20,6 +19,17 @@ function saveBookmarks(event) {
     return;
   }
 
+  let expression = /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+  let regex = new RegExp(expression);
+
+  if (!siteUrl.value.match(regex)) {
+    alert('Будь ласка введіть валідний URL');
+    return false;
+  }
+
+  const bookmarks = [];
+  localStorage.getItem('bookmarks', JSON.stringify(bookmarks))
+
   const bookmark = {
     name: siteName.value,
     url: siteUrl.value
@@ -28,20 +38,24 @@ function saveBookmarks(event) {
     const bookmarks = [];
     bookmarks.push(bookmark);
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+    list.innerHTML = template(bookmarks);
+
   } else {
     if (!localStorage.getItem('bookmarks').includes(bookmark.url)) {
       const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
       bookmarks.unshift(bookmark);
       localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
     } else {
-      alert('NOOOOOOO')
-
+      alert('Така закладка вже існує')
     }
+
     const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
     localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
 
     list.innerHTML = template(bookmarks);
+
   }
+
 }
 
 function deleteBookmarks(event) {
@@ -50,14 +64,14 @@ function deleteBookmarks(event) {
   const bookmarks = JSON.parse(localStorage.getItem('bookmarks'));
   console.log(bookmarks);
 
-  for (let i = 0; i < bookmarks.length; i++) {
-    if (card) {
-      bookmarks.splice(i, 1)
-      filter(e => e.url !== bookmarks[i]);
-    }
-  }
+  const url = card.querySelector('.site-url a').textContent;
+  console.log('url:', url);
+
+  const newBoolmarks = bookmarks.filter(e => e.url !== url);
+  console.log('bookmarks:', newBoolmarks);
+
   card.remove();
-  localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
+  localStorage.setItem('bookmarks', JSON.stringify(newBoolmarks));
 }
 
 
