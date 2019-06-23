@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+body {
+  margin: 0;
+}
+
+.container {
+  display: flex;
+  margin: 0 auto;
+  padding: 20px 10px;
+  width: 1200px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__name,
+.form__url {
+  padding: 10px;
+  display: block;
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  list-style: none;
+}
+
+.list-item {
+  width: 350px;
+  min-height: 80px;
+  margin: 0 5px 5px 0;
+  position: relative;
+}
+
+.delete {
+  border: none;
+  margin: 10px;
+  padding: 10px;
+}
+
